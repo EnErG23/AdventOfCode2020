@@ -1,0 +1,8 @@
+C:\Users\vande\Source\repos\AdventOfCode\AdventOfCode\bin\Release\AdventOfCode.exe.config
+C:\Users\vande\Source\repos\AdventOfCode\AdventOfCode\bin\Release\AdventOfCode.exe
+C:\Users\vande\Source\repos\AdventOfCode\AdventOfCode\bin\Release\AdventOfCode.pdb
+C:\Users\vande\Source\repos\AdventOfCode\AdventOfCode\obj\Release\AdventOfCode.csproj.CoreCompileInputs.cache
+C:\Users\vande\Source\repos\AdventOfCode\AdventOfCode\obj\Release\AdventOfCode.exe
+C:\Users\vande\Source\repos\AdventOfCode\AdventOfCode\obj\Release\AdventOfCode.pdb
+C:\Users\vande\Source\repos\AdventOfCode\AdventOfCode\bin\Release\Inputs\1.txt
+C:\Users\vande\Source\repos\AdventOfCode\AdventOfCode\bin\Release\Inputs\2.txt
