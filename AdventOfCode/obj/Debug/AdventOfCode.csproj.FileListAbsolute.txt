@@ -13,3 +13,4 @@ C:\Users\vande\Source\repos\AdventOfCode\AdventOfCode\bin\Debug\Inputs\5.txt
 C:\Users\vande\Source\repos\AdventOfCode\AdventOfCode\bin\Debug\Inputs\6.txt
 C:\Users\vande\Source\repos\AdventOfCode\AdventOfCode\bin\Debug\Inputs\7.txt
 C:\Users\vande\Source\repos\AdventOfCode\AdventOfCode\bin\Debug\Inputs\8.txt
+C:\Users\vande\Source\repos\AdventOfCode\AdventOfCode\bin\Debug\Inputs\9.txt

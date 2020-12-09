@@ -11,41 +11,45 @@ namespace AdventOfCode
     class Program
     {
         public static List<string> inputs;
-        public static List<int> intInputs;
+        public static List<long> intInputs;
 
         static void Main(string[] args)
         {
-            //DAY 1
-            Day1Pt1();
-            Day1Pt2();
+            ////DAY 1
+            //Day1Pt1();
+            //Day1Pt2();
 
-            //DAY 2
-            Day2Pt1();
-            Day2Pt2();
+            ////DAY 2
+            //Day2Pt1();
+            //Day2Pt2();
 
-            //DAY 3
-            Day3Pt1();
-            Day3Pt2();
+            ////DAY 3
+            //Day3Pt1();
+            //Day3Pt2();
 
-            //DAY 4
-            Day4Pt1();
-            Day4Pt2();
+            ////DAY 4
+            //Day4Pt1();
+            //Day4Pt2();
 
-            //DAY 5
-            Day5Pt1();
-            Day5Pt2();
+            ////DAY 5
+            //Day5Pt1();
+            //Day5Pt2();
 
-            //DAY 6
-            Day6Pt1();
-            Day6Pt2();
+            ////DAY 6
+            //Day6Pt1();
+            //Day6Pt2();
 
-            //DAY 7
-            Day7Pt1();
-            Day7Pt2();
+            ////DAY 7
+            //Day7Pt1();
+            //Day7Pt2();
 
-            //DAY 8
-            Day8Pt1();
-            Day8Pt2();
+            ////DAY 8
+            //Day8Pt1();
+            //Day8Pt2();
+
+            //DAY 9
+            //Day9Pt1();
+            Day9Pt2();
 
             Console.Read();
         }
@@ -1032,11 +1036,122 @@ namespace AdventOfCode
             Console.WriteLine($"8 - 2: {accumulator}");
         }
 
+        //DAY 9
+        static void Day9Pt1()
+        {
+            GetInputs(9);
+            ConvertInputsToInts();
+
+            long firstError = 0;
+            var p = 25;
+            var i = p;
+
+            foreach (var input in intInputs.Skip(p))
+            {
+                var preamble = intInputs.GetRange(i - p, p);
+                var found = false;
+
+                foreach (var pre1 in preamble)
+                {
+                    foreach (var pre2 in preamble.Where(pr => pr != pre1))
+                    {
+                        if (pre1 + pre2 == input)
+                        {
+                            found = true;
+                        }
+                        if (found) break;
+                    }
+                    if (found) break;
+                }
+                if (!found)
+                {
+                    firstError = input;
+                    break;
+                }
+                i++;
+            }
+
+            Console.WriteLine($"9 - 1: {firstError}");
+        }
+
+        static void Day9Pt2()
+        {
+            GetInputs(9);
+            ConvertInputsToInts();
+
+            long firstError = 0;
+            var p = 25;
+            var i = p;
+
+            foreach (var input in intInputs.Skip(p))
+            {
+                var preamble = intInputs.GetRange(i - p, p);
+                var found = false;
+
+                foreach (var pre1 in preamble)
+                {
+                    foreach (var pre2 in preamble.Where(pr => pr != pre1))
+                    {
+                        if (pre1 + pre2 == input)
+                        {
+                            found = true;
+                        }
+                        if (found) break;
+                    }
+                    if (found) break;
+                }
+                if (!found)
+                {
+                    firstError = input;
+                    break;
+                }
+                i++;
+            }
+
+            long subTotal = 0;
+            var start = 0;
+            var length = 1;
+            long result = 0;
+
+            foreach (var input1 in intInputs)
+            {
+                subTotal = 0;
+                start = intInputs.IndexOf(input1);
+                length = 1;
+
+                foreach (var input2 in intInputs.GetRange(start, intInputs.Count() - start))
+                {
+                    subTotal += input2;
+
+                    if (subTotal > firstError)
+                    {
+                        break;
+                    }
+
+                    if (subTotal == firstError)
+                    {
+                        result = intInputs.GetRange(start, length).OrderBy(inp => inp).First() + intInputs.GetRange(start, length).OrderByDescending(inp => inp).First();
+                        break;
+                    }
+
+                    length++;
+                }
+
+                if (result != 0)
+                {
+                    break;
+                }
+
+            }
+
+            Console.WriteLine($"9 - 2: {result}");
+        }
+
         //AUX METHODS
         static void GetInputs(int day)
         {
             inputs = new List<string>();
-            intInputs = new List<int>();
+            intInputs = new List<long>();
 
             StreamReader file = new StreamReader($@"Inputs\{day}.txt");
             string line;
@@ -1049,7 +1164,7 @@ namespace AdventOfCode
 
         static void ConvertInputsToInts()
         {
-            intInputs = inputs.Select(i => Convert.ToInt32(i)).ToList();
+            intInputs = inputs.Select(i => long.Parse(i)).ToList();
         }
     }
 
