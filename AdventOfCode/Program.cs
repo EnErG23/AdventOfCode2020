@@ -15,33 +15,37 @@ namespace AdventOfCode
 
         static void Main(string[] args)
         {
-            ////DAY 1
-            //Day1Pt1();
-            //Day1Pt2();
+            //DAY 1
+            Day1Pt1();
+            Day1Pt2();
 
-            ////DAY 2
-            //Day2Pt1();
-            //Day2Pt2();
+            //DAY 2
+            Day2Pt1();
+            Day2Pt2();
 
-            ////DAY 3
-            //Day3Pt1();
-            //Day3Pt2();
+            //DAY 3
+            Day3Pt1();
+            Day3Pt2();
 
-            ////DAY 4
-            //Day4Pt1();
-            //Day4Pt2();
+            //DAY 4
+            Day4Pt1();
+            Day4Pt2();
 
-            ////DAY 5
-            //Day5Pt1();
-            //Day5Pt2();
+            //DAY 5
+            Day5Pt1();
+            Day5Pt2();
 
-            ////DAY 6
-            //Day6Pt1();
-            //Day6Pt2();
+            //DAY 6
+            Day6Pt1();
+            Day6Pt2();
 
             //DAY 7
-            //Day7Pt1();
+            Day7Pt1();
             Day7Pt2();
+
+            //DAY 8
+            Day8Pt1();
+            Day8Pt2();
 
             Console.Read();
         }
@@ -162,15 +166,141 @@ namespace AdventOfCode
         static void Day3Pt1()
         {
             GetInputs(3);
+            var c = 30;
 
-            Console.WriteLine($"3 - 1: ");
+            var trees = 0;
+
+            var i = 3;
+            foreach (var input in inputs.Skip(1))
+            {
+                if (input[i] == '#')
+                {
+                    trees++;
+                }
+
+                i += 3;
+
+                if (i > c)
+                {
+                    i -= (c + 1);
+                }
+            }
+
+            Console.WriteLine($"3 - 1: {trees}");
         }
 
         static void Day3Pt2()
         {
             GetInputs(3);
+            var c = 30;
 
-            Console.WriteLine($"3 - 2: ");
+            var trees = 1;
+
+            //1-1
+            var tempTrees = 0;
+            var i = 1;
+            foreach (var input in inputs.Skip(1))
+            {
+                if (input[i] == '#')
+                {
+                    tempTrees++;
+                }
+
+                i += 1;
+
+                if (i > c)
+                {
+                    i -= (c + 1);
+                }
+            }
+            trees = trees * tempTrees;
+
+            //3-1
+            tempTrees = 0;
+            i = 3;
+            foreach (var input in inputs.Skip(1))
+            {
+                if (input[i] == '#')
+                {
+                    tempTrees++;
+                }
+
+                i += 3;
+
+                if (i > c)
+                {
+                    i -= (c + 1);
+                }
+            }
+            trees = trees * tempTrees;
+
+            //5-1
+            tempTrees = 0;
+            i = 5;
+            foreach (var input in inputs.Skip(1))
+            {
+                if (input[i] == '#')
+                {
+                    tempTrees++;
+                }
+
+                i += 5;
+
+                if (i > c)
+                {
+                    i -= (c + 1);
+                }
+            }
+            trees = trees * tempTrees;
+
+            //7-1
+            tempTrees = 0;
+            i = 7;
+            foreach (var input in inputs.Skip(1))
+            {
+                if (input[i] == '#')
+                {
+                    tempTrees++;
+                }
+
+                i += 7;
+
+                if (i > c)
+                {
+                    i -= (c + 1);
+                }
+            }
+            trees = trees * tempTrees;
+
+            //1-2
+            tempTrees = 0;
+            i = 1;
+            bool skip = false;
+            foreach (var input in inputs.Skip(2))
+            {
+                if (skip)
+                {
+                    skip = false;
+                    continue;
+                }
+
+                if (input[i] == '#')
+                {
+                    tempTrees++;
+                }
+
+                i += 1;
+
+                if (i > c)
+                {
+                    i -= (c + 1);
+                }
+
+                skip = true;
+            }
+            trees = trees * tempTrees;
+
+            Console.WriteLine($"3 - 2: {trees}");
         }
 
         //DAY 4
@@ -556,8 +686,6 @@ namespace AdventOfCode
             {
                 if (input == "")
                 {
-                    Console.WriteLine(passport);
-                    Console.WriteLine(passport.Distinct().Count());
                     passports.Add(passport);
                     passport = "";
                     reset = true;
@@ -592,8 +720,6 @@ namespace AdventOfCode
                 }
             }
 
-            Console.WriteLine(passport);
-            Console.WriteLine(passport.Distinct().Count());
             passports.Add(passport);
 
             var counts = passports.Select(p => p.Distinct().Count());
@@ -649,12 +775,6 @@ namespace AdventOfCode
                         ChildBags = childBags
                     };
 
-                    if (bag.Name == "vibrant white" || bag.Name == "vibrant fuchsia")
-                    {
-                        Console.WriteLine($"{bag.Name}: {string.Join(";", bag.ChildBags)}");
-                        Console.WriteLine("");
-                    }
-
                     bags.Add(bag);
                 }
             }
@@ -672,18 +792,6 @@ namespace AdventOfCode
                 if (bags.Where(b => b.ChildBags.Any(item => bagNames.Contains(item))).Count() > 0)
                 {
                     possibleBags.AddRange(bags.Where(b => b.ChildBags.Any(item => bagNames.Contains(item))));
-
-                    Console.WriteLine("BAG NAMES");
-                    Console.WriteLine("---------");
-                    Console.WriteLine(string.Join(";", bagNames));
-                    Console.WriteLine("---------");
-
-                    foreach (var bag in possibleBags)
-                    {
-                        Console.WriteLine($"{bag.Name}: {string.Join(";", bag.ChildBags)}");
-                    }
-
-                    Console.WriteLine(" ");
 
                     bagNames = bags.Where(b => b.ChildBags.Any(item => bagNames.Contains(item))).Select(b => b.Name).ToList();
                 }
@@ -754,7 +862,7 @@ namespace AdventOfCode
             var result = 0;
 
             var checkBags = bags.Where(b => b.Name == "shinygold");
-            
+
             var hasChildren = true;
 
             while (hasChildren)
@@ -765,22 +873,13 @@ namespace AdventOfCode
                 {
                     result++;
 
-                    Console.WriteLine($"--------------------------------------");
-                    Console.WriteLine($"CHECKING {bag.Name}");
-                    Console.WriteLine($"--------------------------------------");
-
                     foreach (var child in bag.ChildBags)
                     {
-                        Console.WriteLine($"{child}");
-                        Console.WriteLine($"--------------------------------------");
                         for (int i = 0; i < Convert.ToInt32(child.Substring(0, 1)); i++)
                         {
-                            Console.WriteLine($"Added {child.Substring(1)} bags");
                             tempCheckBags.Add(bags.Where(b => b.Name == child.Substring(1)).First());
                         }
                     }
-                    Console.WriteLine($"--------------------------------------");
-                    Console.WriteLine($" ");
                 }
 
                 if (tempCheckBags.Count() == 0)
@@ -791,39 +890,146 @@ namespace AdventOfCode
                 checkBags = tempCheckBags;
             }
 
-            //var hasChildren = true;
-            //var bagNames = new List<string>() { "shinygold" };
-            //var childBags = new List<Bag>();
+            Console.WriteLine($"7 - 2: {result - 1}");
+        }
 
-            //while (bagNames)
-            //{
-            //    if (bags.Where(b => b.ChildBags.Any(item => bagNames.Contains(item))).Count() > 0)
-            //    {
-            //        possibleBags.AddRange(bags.Where(b => b.ChildBags.Any(item => bagNames.Contains(item))));
+        //DAY 8
+        static void Day8Pt1()
+        {
+            GetInputs(8);
 
-            //        Console.WriteLine("BAG NAMES");
-            //        Console.WriteLine("---------");
-            //        Console.WriteLine(string.Join(";", bagNames));
-            //        Console.WriteLine("---------");
+            var ranLines = new List<int>();
+            var accumulator = 0;
 
-            //        foreach (var bag in possibleBags)
-            //        {
-            //            Console.WriteLine($"{bag.Name}: {string.Join(";", bag.ChildBags)}");
-            //        }
+            var i = 0;
 
-            //        Console.WriteLine(" ");
+            while (true)
+            {
+                if (ranLines.Contains(i))
+                {
+                    break;
+                }
 
-            //        bagNames = bags.Where(b => b.ChildBags.Any(item => bagNames.Contains(item))).Select(b => b.Name).ToList();
-            //    }
-            //    else
-            //    {
-            //        hasParent = false;
-            //    }
-            //}
+                ranLines.Add(i);
 
-            //result = possibleBags.Distinct().Count();
+                var command = inputs[i].Substring(0, 3);
 
-            Console.WriteLine($"7 - 2: {result-1}");
+                switch (command)
+                {
+                    case "acc":
+                        var accValue = Convert.ToInt32(inputs[i].Substring(5));
+                        if (inputs[i].Contains("+"))
+                        {
+                            accumulator += accValue;
+                        }
+                        else
+                        {
+                            accumulator -= accValue;
+                        }
+                        i++;
+                        break;
+                    case "jmp":
+                        var jmpValue = Convert.ToInt32(inputs[i].Substring(5));
+                        if (inputs[i].Contains("+"))
+                        {
+                            i += jmpValue;
+                        }
+                        else
+                        {
+                            i -= jmpValue;
+                        }
+                        break;
+                    default:
+                        i++;
+                        break;
+                }
+            }
+
+            Console.WriteLine($"8 - 1: {accumulator}");
+        }
+
+        static void Day8Pt2()
+        {
+            var accumulator = 0;
+
+            GetInputs(8);
+
+            for (int j = 0; j < inputs.Count() - 1; j++)
+            {
+                accumulator = 0;
+
+                GetInputs(8);
+
+                if (inputs[j].Contains("jmp"))
+                {
+                    inputs[j] = inputs[j].Replace("jmp", "nop");
+                }
+                else if (inputs[j].Contains("nop"))
+                {
+                    inputs[j] = inputs[j].Replace("nop", "jmp");
+                }
+                else
+                {
+                    continue;
+                }
+
+                var ranLines = new List<int>();
+
+                var i = 0;
+                var found = false;
+
+                while (true)
+                {
+                    if (i > inputs.Count() - 1)
+                    {
+                        found = true;
+                        break;
+                    }
+
+                    if (ranLines.Contains(i))
+                    {
+                        break;
+                    }
+
+                    ranLines.Add(i);
+
+                    var command = inputs[i].Substring(0, 3);
+
+                    switch (command)
+                    {
+                        case "acc":
+                            var accValue = Convert.ToInt32(inputs[i].Substring(5));
+                            if (inputs[i].Contains("+"))
+                            {
+                                accumulator += accValue;
+                            }
+                            else
+                            {
+                                accumulator -= accValue;
+                            }
+                            i++;
+                            break;
+                        case "jmp":
+                            var jmpValue = Convert.ToInt32(inputs[i].Substring(5));
+                            if (inputs[i].Contains("+"))
+                            {
+                                i += jmpValue;
+                            }
+                            else
+                            {
+                                i -= jmpValue;
+                            }
+                            break;
+                        default:
+                            i++;
+                            break;
+                    }
+                }
+
+                if (found) break;
+            }
+
+            Console.WriteLine($"8 - 2: {accumulator}");
         }
 
         //AUX METHODS

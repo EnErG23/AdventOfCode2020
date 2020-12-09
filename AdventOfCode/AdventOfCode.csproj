@@ -69,7 +69,7 @@
     <Content Include="Inputs\6.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Inputs\7OG.txt">
+    <Content Include="Inputs\8.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Inputs\7.txt">
