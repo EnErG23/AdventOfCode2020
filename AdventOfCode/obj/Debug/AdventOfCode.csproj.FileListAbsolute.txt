@@ -9,3 +9,7 @@ C:\Users\vande\Source\repos\AdventOfCode\AdventOfCode\bin\Debug\Inputs\1.txt
 C:\Users\vande\Source\repos\AdventOfCode\AdventOfCode\bin\Debug\Inputs\2.txt
 C:\Users\vande\Source\repos\AdventOfCode\AdventOfCode\bin\Debug\Inputs\3.txt
 C:\Users\vande\Source\repos\AdventOfCode\AdventOfCode\bin\Debug\Inputs\4.txt
+C:\Users\vande\Source\repos\AdventOfCode\AdventOfCode\bin\Debug\Inputs\5.txt
+C:\Users\vande\Source\repos\AdventOfCode\AdventOfCode\bin\Debug\Inputs\6.txt
+C:\Users\vande\Source\repos\AdventOfCode\AdventOfCode\bin\Debug\Inputs\7.txt
+C:\Users\vande\Source\repos\AdventOfCode\AdventOfCode\bin\Debug\Inputs\7OG.txt

@@ -31,9 +31,17 @@ namespace AdventOfCode
             //Day4Pt1();
             //Day4Pt2();
 
-            //DAY 5
-            Day5Pt1();
-            Day5Pt2();
+            ////DAY 5
+            //Day5Pt1();
+            //Day5Pt2();
+
+            ////DAY 6
+            //Day6Pt1();
+            //Day6Pt2();
+
+            //DAY 7
+            //Day7Pt1();
+            Day7Pt2();
 
             Console.Read();
         }
@@ -189,12 +197,12 @@ namespace AdventOfCode
 
             foreach (string p in passports)
             {
-                Console.WriteLine(p);
+                //Console.WriteLine(p);
                 if (p.Contains("byr:") && p.Contains("iyr:") && p.Contains("eyr:") && p.Contains("hgt:") && p.Contains("hcl:") && p.Contains("ecl:") && p.Contains("pid:"))
                 {
                     validPassports++;
-                    Console.WriteLine("Valid");
-                    Console.WriteLine("");
+                    //Console.WriteLine("Valid");
+                    //Console.WriteLine("");
                 }
             }
 
@@ -224,7 +232,7 @@ namespace AdventOfCode
 
             foreach (string p in passports)
             {
-                Console.WriteLine(p);
+                //Console.WriteLine(p);
                 if (p.Contains("byr:") && p.Contains("iyr:") && p.Contains("eyr:") && p.Contains("hgt:") && p.Contains("hcl:") && p.Contains("ecl:") && p.Contains("pid:"))
                 {
                     bool valid = true;
@@ -249,14 +257,14 @@ namespace AdventOfCode
                                     }
                                     else
                                     {
-                                        Console.WriteLine($"{key}:{value}");
+                                        //Console.WriteLine($"{key}:{value}");
                                         valid = false;
                                     }
                                 }
                                 else
                                 {
                                     valid = false;
-                                    Console.WriteLine($"{key}:{value}");
+                                    //Console.WriteLine($"{key}:{value}");
                                 }
                                 break;
                             case "iyr":
@@ -268,13 +276,13 @@ namespace AdventOfCode
                                     }
                                     else
                                     {
-                                        Console.WriteLine($"{key}:{value}");
+                                        //Console.WriteLine($"{key}:{value}");
                                         valid = false;
                                     }
                                 }
                                 else
                                 {
-                                    Console.WriteLine($"{key}:{value}");
+                                    //Console.WriteLine($"{key}:{value}");
                                     valid = false;
                                 }
                                 break;
@@ -287,13 +295,13 @@ namespace AdventOfCode
                                     }
                                     else
                                     {
-                                        Console.WriteLine($"{key}:{value}");
+                                        //Console.WriteLine($"{key}:{value}");
                                         valid = false;
                                     }
                                 }
                                 else
                                 {
-                                    Console.WriteLine($"{key}:{value}");
+                                    //Console.WriteLine($"{key}:{value}");
                                     valid = false;
                                 }
                                 break;
@@ -308,7 +316,7 @@ namespace AdventOfCode
                                         }
                                         else
                                         {
-                                            Console.WriteLine($"{key}:{value}");
+                                            //Console.WriteLine($"{key}:{value}");
                                             valid = false;
                                         }
                                     }
@@ -323,14 +331,14 @@ namespace AdventOfCode
                                         }
                                         else
                                         {
-                                            Console.WriteLine($"{key}:{value}");
+                                            //Console.WriteLine($"{key}:{value}");
                                             valid = false;
                                         }
                                     }
                                 }
                                 else
                                 {
-                                    Console.WriteLine($"{key}:{value}");
+                                    //Console.WriteLine($"{key}:{value}");
                                     valid = false;
                                 }
                                 break;
@@ -343,13 +351,13 @@ namespace AdventOfCode
                                     }
                                     else
                                     {
-                                        Console.WriteLine($"{key}:{value}");
+                                        //Console.WriteLine($"{key}:{value}");
                                         valid = false;
                                     }
                                 }
                                 else
                                 {
-                                    Console.WriteLine($"{key}:{value}");
+                                    //Console.WriteLine($"{key}:{value}");
                                     valid = false;
                                 }
                                 break;
@@ -362,7 +370,7 @@ namespace AdventOfCode
                                 }
                                 else
                                 {
-                                    Console.WriteLine($"{key}:{value}");
+                                    //Console.WriteLine($"{key}:{value}");
                                     valid = false;
                                 }
                                 break;
@@ -375,13 +383,13 @@ namespace AdventOfCode
                                     }
                                     else
                                     {
-                                        Console.WriteLine($"{key}:{value}");
+                                        //Console.WriteLine($"{key}:{value}");
                                         valid = false;
                                     }
                                 }
                                 else
                                 {
-                                    Console.WriteLine($"{key}:{value}");
+                                    //Console.WriteLine($"{key}:{value}");
                                     valid = false;
                                 }
                                 break;
@@ -395,28 +403,427 @@ namespace AdventOfCode
                     if (valid)
                     {
                         validPassports++;
-                        Console.WriteLine("Valid");
+                        //Console.WriteLine("Valid");
                     }
-                    Console.WriteLine("");
+                    //Console.WriteLine("");
                 }
             }
 
             Console.WriteLine($"4 - 2: {validPassports}");
         }
 
-        //DAY 4
+        //DAY 5
         static void Day5Pt1()
         {
             GetInputs(5);
 
-            Console.WriteLine($"5 - 1: ");
+            var highestSeatID = 0;
+
+            foreach (var input in inputs)
+            {
+                var seatID = 0;
+
+                List<int> rows = Enumerable.Range(0, 128).ToList();
+
+                for (int i = 8; i > 1; i--)
+                {
+                    if (input[8 - i] == 'F')
+                    {
+                        rows = rows.GetRange(0, rows.Count() / 2);
+                    }
+                    else
+                    {
+                        rows = rows.GetRange(rows.Count() / 2, rows.Count() / 2);
+                    }
+                    //Console.WriteLine(rows[0]);
+                }
+
+                List<int> columns = Enumerable.Range(0, 8).ToList();
+
+                for (int i = 4; i > 1; i--)
+                {
+                    if (input.Substring(7)[4 - i] == 'L')
+                    {
+                        columns = columns.GetRange(0, columns.Count() / 2);
+                    }
+                    else
+                    {
+                        columns = columns.GetRange(columns.Count() / 2, columns.Count() / 2);
+                    }
+                    //Console.WriteLine(columns[0]);
+                }
+
+                seatID = (rows[0] * 8) + columns[0];
+
+                highestSeatID = Math.Max(highestSeatID, seatID);
+            }
+
+            Console.WriteLine($"5 - 1: {highestSeatID}");
         }
 
         static void Day5Pt2()
         {
             GetInputs(5);
 
-            Console.WriteLine($"5 - 2: ");
+            List<int> seatIDs = new List<int>();
+
+            foreach (var input in inputs)
+            {
+                var seatID = 0;
+
+                List<int> rows = Enumerable.Range(0, 128).ToList();
+
+                for (int i = 8; i > 1; i--)
+                {
+                    if (input[8 - i] == 'F')
+                    {
+                        rows = rows.GetRange(0, rows.Count() / 2);
+                    }
+                    else
+                    {
+                        rows = rows.GetRange(rows.Count() / 2, rows.Count() / 2);
+                    }
+                    //Console.WriteLine(rows[0]);
+                }
+
+                List<int> columns = Enumerable.Range(0, 8).ToList();
+
+                for (int i = 4; i > 1; i--)
+                {
+                    if (input.Substring(7)[4 - i] == 'L')
+                    {
+                        columns = columns.GetRange(0, columns.Count() / 2);
+                    }
+                    else
+                    {
+                        columns = columns.GetRange(columns.Count() / 2, columns.Count() / 2);
+                    }
+                    //Console.WriteLine(columns[0]);
+                }
+
+                seatID = (rows[0] * 8) + columns[0];
+
+                seatIDs.Add(seatID);
+            }
+
+            List<int> allIDS = Enumerable.Range(9, 1031).ToList();
+
+            //foreach(var id in allIDS.Where(a => !seatIDs.Contains(a)))
+            //{
+            //    Console.WriteLine($"Possible: {id}");
+            //}
+
+            var mySeatID = allIDS.Where(a => a > 79 && a < 927).Where(a => !seatIDs.Contains(a)).First();
+
+            Console.WriteLine($"5 - 2: {mySeatID}");
+        }
+
+        //DAY 6
+        static void Day6Pt1()
+        {
+            GetInputs(6);
+
+            List<string> passports = new List<string>();
+            string passport = "";
+
+            foreach (string input in inputs)
+            {
+                if (input == "")
+                {
+                    passports.Add(passport);
+                    passport = "";
+                }
+                passport += input;
+            }
+
+            passports.Add(passport);
+
+            var counts = passports.Select(p => p.Distinct().Count());
+
+            Console.WriteLine($"6 - 1: {counts.Sum(c => c)}");
+        }
+
+        static void Day6Pt2()
+        {
+            GetInputs(6);
+
+            List<string> passports = new List<string>();
+            string passport = "";
+
+            bool reset = true;
+
+            foreach (string input in inputs)
+            {
+                if (input == "")
+                {
+                    Console.WriteLine(passport);
+                    Console.WriteLine(passport.Distinct().Count());
+                    passports.Add(passport);
+                    passport = "";
+                    reset = true;
+                }
+                else
+                {
+                    if (reset)
+                    {
+                        passport = input;
+                        reset = false;
+                    }
+                    else
+                    {
+                        var ppLetters = passport.Distinct();
+                        foreach (var letter in ppLetters)
+                        {
+                            if (!input.Contains(letter))
+                            {
+                                passport = passport.Replace(letter.ToString(), "");
+                            }
+                        }
+
+                        var letters = input.Distinct();
+                        foreach (var letter in letters)
+                        {
+                            if (!passport.Contains(letter))
+                            {
+                                passport = passport.Replace(letter.ToString(), "");
+                            }
+                        }
+                    }
+                }
+            }
+
+            Console.WriteLine(passport);
+            Console.WriteLine(passport.Distinct().Count());
+            passports.Add(passport);
+
+            var counts = passports.Select(p => p.Distinct().Count());
+
+            Console.WriteLine($"6 - 2: {counts.Sum(c => c)}");
+        }
+
+        //DAY 7
+        static void Day7Pt1()
+        {
+            GetInputs(7);
+
+            List<string> newInputs = new List<string>();
+
+            foreach (var input in inputs)
+            {
+                var tempInput = input.Replace("bags ", "").Replace("bags, ", "").Replace("bags.", "").Replace("contain ", "").Replace("bag", "").Replace(", ", "").Replace(".", "").Replace(" no other", "");
+
+                for (int i = 0; i < 10; i++)
+                {
+                    tempInput = tempInput.Replace($"{i}", "");
+                }
+
+                tempInput = tempInput.Replace($"  ", ";");
+                newInputs.Add(tempInput.Replace(" ", ""));
+            }
+
+            List<Bag> bags = new List<Bag>();
+
+            foreach (var newInput in newInputs)
+            {
+                var newBags = newInput.Split(';').ToList();
+
+                if (bags.Where(b => b.Name == newBags[0]).Count() > 0)
+                {
+                    var bag = bags.Where(b => b.Name == newBags[0]).First();
+
+                    foreach (var childBag in newBags.GetRange(1, newBags.Count() - 1))
+                    {
+                        if (!bag.ChildBags.Contains(childBag))
+                        {
+                            bag.ChildBags.Add(childBag);
+                        }
+                    }
+                }
+                else
+                {
+                    var childBags = newBags.GetRange(1, newBags.Count() - 1);
+
+                    Bag bag = new Bag
+                    {
+                        Name = newBags[0],
+                        ChildBags = childBags
+                    };
+
+                    if (bag.Name == "vibrant white" || bag.Name == "vibrant fuchsia")
+                    {
+                        Console.WriteLine($"{bag.Name}: {string.Join(";", bag.ChildBags)}");
+                        Console.WriteLine("");
+                    }
+
+                    bags.Add(bag);
+                }
+            }
+
+            bags = bags.OrderBy(b => b.Name).ToList();
+
+            var result = 0;
+
+            var hasParent = true;
+            var bagNames = new List<string>() { "shinygold" };
+            var possibleBags = new List<Bag>();
+
+            while (hasParent)
+            {
+                if (bags.Where(b => b.ChildBags.Any(item => bagNames.Contains(item))).Count() > 0)
+                {
+                    possibleBags.AddRange(bags.Where(b => b.ChildBags.Any(item => bagNames.Contains(item))));
+
+                    Console.WriteLine("BAG NAMES");
+                    Console.WriteLine("---------");
+                    Console.WriteLine(string.Join(";", bagNames));
+                    Console.WriteLine("---------");
+
+                    foreach (var bag in possibleBags)
+                    {
+                        Console.WriteLine($"{bag.Name}: {string.Join(";", bag.ChildBags)}");
+                    }
+
+                    Console.WriteLine(" ");
+
+                    bagNames = bags.Where(b => b.ChildBags.Any(item => bagNames.Contains(item))).Select(b => b.Name).ToList();
+                }
+                else
+                {
+                    hasParent = false;
+                }
+            }
+
+            result = possibleBags.Distinct().Count();
+
+            Console.WriteLine($"7 - 1: {result}");
+        }
+
+        static void Day7Pt2()
+        {
+            GetInputs(7);
+
+            List<string> newInputs = new List<string>();
+
+            foreach (var input in inputs)
+            {
+                var tempInput = input.Replace("bags ", "").Replace("bags, ", "").Replace("bags.", "").Replace("contain ", "").Replace("bag", "").Replace(", ", "").Replace(".", "").Replace(" no other", "");
+
+                for (int i = 0; i < 10; i++)
+                {
+                    tempInput = tempInput.Replace($"{i}", $";{i}");
+                }
+
+                tempInput = tempInput.Replace($"  ", ";");
+                newInputs.Add(tempInput.Replace(" ", ""));
+            }
+
+            List<Bag> bags = new List<Bag>();
+
+            foreach (var newInput in newInputs)
+            {
+                var newBags = newInput.Split(';').ToList();
+
+                if (bags.Where(b => b.Name == newBags[0]).Count() > 0)
+                {
+                    var bag = bags.Where(b => b.Name == newBags[0]).First();
+
+                    foreach (var childBag in newBags.GetRange(1, newBags.Count() - 1))
+                    {
+                        if (!bag.ChildBags.Contains(childBag))
+                        {
+                            bag.ChildBags.Add(childBag);
+                        }
+                    }
+                }
+                else
+                {
+                    var childBags = newBags.GetRange(1, newBags.Count() - 1);
+
+                    Bag bag = new Bag
+                    {
+                        Name = newBags[0],
+                        ChildBags = childBags
+                    };
+
+                    bags.Add(bag);
+                }
+            }
+
+            bags = bags.OrderBy(b => b.Name).ToList();
+
+            var result = 0;
+
+            var checkBags = bags.Where(b => b.Name == "shinygold");
+            
+            var hasChildren = true;
+
+            while (hasChildren)
+            {
+                var tempCheckBags = new List<Bag>();
+
+                foreach (var bag in checkBags)
+                {
+                    result++;
+
+                    Console.WriteLine($"--------------------------------------");
+                    Console.WriteLine($"CHECKING {bag.Name}");
+                    Console.WriteLine($"--------------------------------------");
+
+                    foreach (var child in bag.ChildBags)
+                    {
+                        Console.WriteLine($"{child}");
+                        Console.WriteLine($"--------------------------------------");
+                        for (int i = 0; i < Convert.ToInt32(child.Substring(0, 1)); i++)
+                        {
+                            Console.WriteLine($"Added {child.Substring(1)} bags");
+                            tempCheckBags.Add(bags.Where(b => b.Name == child.Substring(1)).First());
+                        }
+                    }
+                    Console.WriteLine($"--------------------------------------");
+                    Console.WriteLine($" ");
+                }
+
+                if (tempCheckBags.Count() == 0)
+                {
+                    hasChildren = false;
+                }
+
+                checkBags = tempCheckBags;
+            }
+
+            //var hasChildren = true;
+            //var bagNames = new List<string>() { "shinygold" };
+            //var childBags = new List<Bag>();
+
+            //while (bagNames)
+            //{
+            //    if (bags.Where(b => b.ChildBags.Any(item => bagNames.Contains(item))).Count() > 0)
+            //    {
+            //        possibleBags.AddRange(bags.Where(b => b.ChildBags.Any(item => bagNames.Contains(item))));
+
+            //        Console.WriteLine("BAG NAMES");
+            //        Console.WriteLine("---------");
+            //        Console.WriteLine(string.Join(";", bagNames));
+            //        Console.WriteLine("---------");
+
+            //        foreach (var bag in possibleBags)
+            //        {
+            //            Console.WriteLine($"{bag.Name}: {string.Join(";", bag.ChildBags)}");
+            //        }
+
+            //        Console.WriteLine(" ");
+
+            //        bagNames = bags.Where(b => b.ChildBags.Any(item => bagNames.Contains(item))).Select(b => b.Name).ToList();
+            //    }
+            //    else
+            //    {
+            //        hasParent = false;
+            //    }
+            //}
+
+            //result = possibleBags.Distinct().Count();
+
+            Console.WriteLine($"7 - 2: {result-1}");
         }
 
         //AUX METHODS
@@ -438,5 +845,11 @@ namespace AdventOfCode
         {
             intInputs = inputs.Select(i => Convert.ToInt32(i)).ToList();
         }
+    }
+
+    class Bag
+    {
+        public string Name { get; set; }
+        public List<string> ChildBags { get; set; }
     }
 }
