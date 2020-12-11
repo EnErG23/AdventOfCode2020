@@ -1251,22 +1251,22 @@ namespace AdventOfCode
                             continue;
                         }
 
-                        var adjecentSeats = "";
+                        var adjacentSeats = "";
 
-                        try { adjecentSeats += seats[i - 1][j]; } catch { }         //U
-                        try { adjecentSeats += seats[i - 1][j + 1]; } catch { }     //RU
-                        try { adjecentSeats += seats[i][j + 1]; } catch { }         //R
-                        try { adjecentSeats += seats[i + 1][j + 1]; } catch { }     //RD
-                        try { adjecentSeats += seats[i + 1][j]; } catch { }         //D
-                        try { adjecentSeats += seats[i + 1][j - 1]; } catch { }     //LD
-                        try { adjecentSeats += seats[i][j - 1]; } catch { }         //L
-                        try { adjecentSeats += seats[i - 1][j - 1]; } catch { }     //LU
+                        try { adjacentSeats += seats[i - 1][j]; } catch { }         //U
+                        try { adjacentSeats += seats[i - 1][j + 1]; } catch { }     //RU
+                        try { adjacentSeats += seats[i][j + 1]; } catch { }         //R
+                        try { adjacentSeats += seats[i + 1][j + 1]; } catch { }     //RD
+                        try { adjacentSeats += seats[i + 1][j]; } catch { }         //D
+                        try { adjacentSeats += seats[i + 1][j - 1]; } catch { }     //LD
+                        try { adjacentSeats += seats[i][j - 1]; } catch { }         //L
+                        try { adjacentSeats += seats[i - 1][j - 1]; } catch { }     //LU
 
                         if (rule1)
                         {
                             if (seat == 'L')
                             {
-                                if (!adjecentSeats.Contains('#'))
+                                if (!adjacentSeats.Contains('#'))
                                 {
                                     change = true;
                                     newRow.Add('#');
@@ -1285,7 +1285,7 @@ namespace AdventOfCode
                         {
                             if (seat == '#')
                             {
-                                if (adjecentSeats.Count(a => a == '#') > 3)
+                                if (adjacentSeats.Count(a => a == '#') > 3)
                                 {
                                     change = true;
                                     newRow.Add('L');
@@ -1301,7 +1301,7 @@ namespace AdventOfCode
                             }
                         }
 
-                        //Console.WriteLine($"{seat} => {adjecentSeats}");
+                        //Console.WriteLine($"{seat} => {adjacentSeats}");
 
                         //foreach (var s in newSeats)
                         //{
@@ -1359,7 +1359,7 @@ namespace AdventOfCode
                             continue;
                         }
 
-                        var adjecentSeats = "";
+                        var adjacentSeats = "";
 
                         //U
                         try
@@ -1373,7 +1373,7 @@ namespace AdventOfCode
                                 var checkSeat = seats[i - offset][j];
                                 if (checkSeat == 'L' || checkSeat == '#')
                                 {
-                                    if (checkSeat == '#') adjecentSeats += checkSeat;
+                                    if (checkSeat == '#') adjacentSeats += checkSeat;
                                     noSeat = false;
                                 }
                             }
@@ -1392,7 +1392,7 @@ namespace AdventOfCode
                                 var checkSeat = seats[i - offset][j + offset];
                                 if (checkSeat == 'L' || checkSeat == '#')
                                 {
-                                    if (checkSeat == '#') adjecentSeats += checkSeat;
+                                    if (checkSeat == '#') adjacentSeats += checkSeat;
                                     noSeat = false;
                                 }
                             }
@@ -1411,7 +1411,7 @@ namespace AdventOfCode
                                 var checkSeat = seats[i][j + offset];
                                 if (checkSeat == 'L' || checkSeat == '#')
                                 {
-                                    if (checkSeat == '#') adjecentSeats += checkSeat;
+                                    if (checkSeat == '#') adjacentSeats += checkSeat;
                                     noSeat = false;
                                 }
                             }
@@ -1430,7 +1430,7 @@ namespace AdventOfCode
                                 var checkSeat = seats[i + offset][j + offset];
                                 if (checkSeat == 'L' || checkSeat == '#')
                                 {
-                                    if (checkSeat == '#') adjecentSeats += checkSeat;
+                                    if (checkSeat == '#') adjacentSeats += checkSeat;
                                     noSeat = false;
                                 }
                             }
@@ -1449,7 +1449,7 @@ namespace AdventOfCode
                                 var checkSeat = seats[i + offset][j];
                                 if (checkSeat == 'L' || checkSeat == '#')
                                 {
-                                    if (checkSeat == '#') adjecentSeats += checkSeat;
+                                    if (checkSeat == '#') adjacentSeats += checkSeat;
                                     noSeat = false;
                                 }
                             }
@@ -1468,7 +1468,7 @@ namespace AdventOfCode
                                 var checkSeat = seats[i + offset][j - offset];
                                 if (checkSeat == 'L' || checkSeat == '#')
                                 {
-                                    if (checkSeat == '#') adjecentSeats += checkSeat;
+                                    if (checkSeat == '#') adjacentSeats += checkSeat;
                                     noSeat = false;
                                 }
                             }
@@ -1487,7 +1487,7 @@ namespace AdventOfCode
                                 var checkSeat = seats[i][j - offset];
                                 if (checkSeat == 'L' || checkSeat == '#')
                                 {
-                                    if (checkSeat == '#') adjecentSeats += checkSeat;
+                                    if (checkSeat == '#') adjacentSeats += checkSeat;
                                     noSeat = false;
                                 }
                             }
@@ -1506,7 +1506,7 @@ namespace AdventOfCode
                                 var checkSeat = seats[i - offset][j - offset];
                                 if (checkSeat == 'L' || checkSeat == '#')
                                 {
-                                    if (checkSeat == '#') adjecentSeats += checkSeat;
+                                    if (checkSeat == '#') adjacentSeats += checkSeat;
                                     noSeat = false;
                                 }
                             }
@@ -1517,7 +1517,7 @@ namespace AdventOfCode
                         {
                             if (seat == 'L')
                             {
-                                if (!adjecentSeats.Contains('#'))
+                                if (!adjacentSeats.Contains('#'))
                                 {
                                     change = true;
                                     newRow.Add('#');
@@ -1536,7 +1536,7 @@ namespace AdventOfCode
                         {
                             if (seat == '#')
                             {
-                                if (adjecentSeats.Count() > 4)
+                                if (adjacentSeats.Count() > 4)
                                 {
                                     change = true;
                                     newRow.Add('L');
