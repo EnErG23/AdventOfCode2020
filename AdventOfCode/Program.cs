@@ -10,13 +10,11 @@ namespace AdventOfCode
 {
     class Program
     {
-        public static List<string> inputs;
-        public static List<long> intInputs;
-        public static int count = 1;
-        public static List<List<long>> kaka;
-        public static decimal progress = 0;
         public static DateTime start;
         public static DateTime end;
+
+        public static List<string> inputs;
+        public static List<long> intInputs;
 
         static void Main(string[] args)
         {
@@ -62,7 +60,7 @@ namespace AdventOfCode
             //Day10Pt1();
             //Day10Pt2();
 
-            //DAY 11
+            ////DAY 11
             //Day11Pt1();
             //Day11Pt2();
 
@@ -1203,12 +1201,48 @@ namespace AdventOfCode
             intInputs = intInputs.OrderBy(i => i).ToList();
             intInputs.Add(intInputs[intInputs.Count() - 1] + 3);
 
-            kaka = new List<List<long>>();
+            long result = 1;
 
-            KakRecursie(intInputs);
+            var count = 0;
+            var a = 0;
 
-            Console.WriteLine($" ");
-            Console.WriteLine($"10 - 2: {kaka.Distinct().Count()}");
+            foreach (var l in intInputs.Skip(1).Take(intInputs.Count() - 2))
+            {
+                if ((l - intInputs[a]) + (intInputs[a + 2] - l) < 4)
+                {
+                    count++;
+                }
+                else
+                {
+                    if (count > 0)
+                    {
+                        var fact = count;
+
+                        for (var i = count - 1; i >= 1; i--)
+                        {
+                            fact = fact * i;
+                        }
+
+                        if (l - intInputs[a - count] < 4)
+                        {
+                            fact++;
+                        }
+
+                        if (count > 1)
+                        {
+                            fact++;
+                        }
+
+                        result *= fact;
+
+                        count = 0;
+                    }
+                }
+
+                a++;
+            }
+
+            Console.WriteLine($"10 - 2: {result}");
         }
 
         //DAY 11
@@ -1580,37 +1614,6 @@ namespace AdventOfCode
         static void ConvertInputsToInts()
         {
             intInputs = inputs.Select(i => long.Parse(i)).ToList();
-        }
-
-        static void KakRecursie(List<long> list)
-        {
-            if (kaka.Where(k => k.SequenceEqual(list)).Count() == 0)
-            {
-                //Console.WriteLine($"{string.Join(", ", list)}");
-                kaka.Add(list);
-
-                var toRemove = list.Select((val, idx) => new { val, idx }).Where(v => v.idx > 0 && v.idx < list.Count() - 1 && (v.val - list[v.idx - 1]) + (list[v.idx + 1] - v.val) < 4).Select(v => v.idx);
-
-                foreach (var r in toRemove)
-                {
-                    if (list.Count() == intInputs.Count())
-                    {
-                        end = DateTime.Now;
-
-                        decimal x = toRemove.ToList().FindIndex(t => t == r) + 1;
-                        decimal y = toRemove.Count();
-                        decimal z = x / y;
-
-                        progress = z;
-
-                        Console.WriteLine($"Progress: {String.Format("{0:P}", progress)} (Completed in {(end - start).Hours}h{(end - start).Minutes}m{(end - start).Seconds}s{(end - start).Milliseconds}ms)");
-                    }
-
-                    var tempList = list.Select(l => l).ToList();
-                    tempList.Remove(tempList[r]);
-                    KakRecursie(tempList);
-                }
-            }
         }
     }
 
