@@ -64,6 +64,10 @@ namespace AdventOfCode
             //Day11Pt1();
             //Day11Pt2();
 
+            //DAY 12
+            //Day12Pt1();
+            //Day12Pt2();
+
             end = DateTime.Now;
 
             Console.WriteLine("");
@@ -1208,7 +1212,7 @@ namespace AdventOfCode
 
             foreach (var l in intInputs.Skip(1).Take(intInputs.Count() - 2))
             {
-                if ((l - intInputs[a]) + (intInputs[a + 2] - l) < 4)
+                if (intInputs[a + 2] - intInputs[a] < 4)
                 {
                     count++;
                 }
@@ -1594,6 +1598,128 @@ namespace AdventOfCode
             var totalOccupied = seats.Sum(r => r.Count(s => s == '#'));
 
             Console.WriteLine($"11 - 2: {totalOccupied}");
+        }
+
+        //DAY 12
+        static void Day12Pt1()
+        {
+            GetInputs(12);
+
+            var x = 0;
+            var y = 0;
+            var d = 1;
+            var ds = new List<string>() { "N", "E", "S", "W" };
+
+            foreach (var input in inputs)
+            {
+                //Console.WriteLine($"{input} => {input.Replace("F", ds[d])}");
+
+                switch (input.Replace("F", ds[d])[0])
+                {
+                    case 'N':
+                        y += Convert.ToInt32(input.Substring(1));
+                        break;
+                    case 'E':
+                        x += Convert.ToInt32(input.Substring(1));
+                        break;
+                    case 'S':
+                        y -= Convert.ToInt32(input.Substring(1));
+                        break;
+                    case 'W':
+                        x -= Convert.ToInt32(input.Substring(1));
+                        break;
+                    case 'L':
+                        d -= Convert.ToInt32(input.Substring(1)) / 90;
+                        if (d < 0) d += 4;
+                        break;
+                    case 'R':
+                        d += Convert.ToInt32(input.Substring(1)) / 90;
+                        if (d > 3) d -= 4;
+                        break;
+                    default:
+                        break;
+                }
+
+                //Console.WriteLine($"({x}, {y})");
+            }
+
+            Console.WriteLine($"12 - 1: {Math.Abs(x) + Math.Abs(y)}");
+        }
+
+        static void Day12Pt2()
+        {
+            GetInputs(12);
+
+            var x = 0;
+            var y = 0;
+
+            var wX = 10;
+            var wY = 1;
+
+            foreach (var input in inputs)
+            {
+                var tX = wX;
+
+                switch (input[0])
+                {
+                    case 'N':
+                        wY += Convert.ToInt32(input.Substring(1));
+                        break;
+                    case 'E':
+                        wX += Convert.ToInt32(input.Substring(1));
+                        break;
+                    case 'S':
+                        wY -= Convert.ToInt32(input.Substring(1));
+                        break;
+                    case 'W':
+                        wX -= Convert.ToInt32(input.Substring(1));
+                        break;
+                    case 'L':
+                        switch (Convert.ToInt32(input.Substring(1)))
+                        {
+                            case 90:
+                                wX = -wY;
+                                wY = tX;
+                                break;
+                            case 180:
+                                wX = -wX;
+                                wY = -wY;
+                                break;
+                            case 270:
+                                wX = wY;
+                                wY = -tX;
+                                break;
+                            default:
+                                break;
+                        }
+                        break;
+                    case 'R':
+                        switch (Convert.ToInt32(input.Substring(1)))
+                        {
+                            case 90:
+                                wX = wY;
+                                wY = -tX;
+                                break;
+                            case 180:
+                                wX = -wX;
+                                wY = -wY;
+                                break;
+                            case 270:
+                                wX = -wY;
+                                wY = tX;
+                                break;
+                            default:
+                                break;
+                        }
+                        break;
+                    default:
+                        x += Convert.ToInt32(input.Substring(1)) * wX;
+                        y += Convert.ToInt32(input.Substring(1)) * wY;
+                        break;
+                }
+            }
+
+            Console.WriteLine($"12 - 2: {Math.Abs(x) + Math.Abs(y)}");
         }
 
         //AUX METHODS
