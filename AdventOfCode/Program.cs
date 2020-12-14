@@ -18,18 +18,19 @@ namespace AdventOfCode
         {
             start = DateTime.Now;
 
-            Day1.Run(); // Moved // Cleaned // Optimised?
-            Day2.Run(); // Moved
-            Day3.Run(); // Moved
-            Day4.Run(); // Moved
-            Day5.Run(); // Moved
-            Day6.Run(); // Moved
-            Day7.Run(); // Moved
-            Day8.Run(); // Moved
-            Day9.Run(); // Moved
-            Day10.Run(); // Moved
-            //Day11.Run();
-            Day12.Run(); // Moved
+            //Day1.Run(); // To Optimise
+            //Day2.Run(); // To Clean
+            //Day3.Run(); // To Clean
+            //Day4.Run(); // To Clean
+            //Day5.Run(); // To Clean
+            //Day6.Run(); // To Clean
+            //Day7.Run(); // To Clean
+            //Day8.Run(); // To Clean
+            //Day9.Run(); // To Clean
+            //Day10.Run(); // To Clean
+            ////Day11.Run(); // To Move
+            //Day12.Run(); // To Clean
+            Day13.Run();
 
             ////DAY 11
             //Day11Pt1();

@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Days\Day1.cs" />
+    <Compile Include="Days\Day13.cs" />
     <Compile Include="Days\Day12.cs" />
     <Compile Include="Days\Day3.cs" />
     <Compile Include="Days\Day4.cs" />
@@ -57,6 +58,7 @@
     <Compile Include="Helpers\InputManager.cs" />
     <Compile Include="Days\Day2.cs" />
     <Compile Include="Models\Bag.cs" />
+    <Compile Include="Models\Bus.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -65,6 +67,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Inputs\1.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Inputs\13.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Inputs\12.txt">
