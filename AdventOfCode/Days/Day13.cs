@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace AdventOfCode
 {
+    // PRECAUTION: YOUR SANITY WILL BE AFFECTED BY READING THIS
     public class Day13
     {
         public static DateTime start;
@@ -67,65 +68,48 @@ namespace AdventOfCode
         {
             var start = DateTime.Now;
 
-            var oldBuses = inputs[1].Split(',').Select(i => Convert.ToInt32(i.Replace("x", "0"))).ToList();
+            List<Bus> buses = inputs[1].Split(',')
+                              .Select(i => new Bus { ID = Convert.ToInt32(i.Replace("x", "0")), Pos = inputs[1].Split(',').ToList().IndexOf(i) })
+                              .Where(b => b.ID > 0)
+                              .ToList();
 
-            var buses = new List<Bus>();
+            long[] n = buses.Select(b => b.ID).ToArray();
+            long[] a = buses.Select(b => b.ID - b.Pos < 0 ? b.ID - (b.Pos % b.ID) : b.ID - b.Pos).ToArray();
 
-            foreach (var b in oldBuses)
-            {
-                if (b > 0)
-                {
-                    Bus bus = new Bus
-                    {
-                        ID = b,
-                        Pos = oldBuses.IndexOf(b)
-                    };
-                    buses.Add(bus);
-                }
-            }
-
-            buses = buses.OrderByDescending(b => b.ID).ToList();
-
-            var highestID = buses.First().ID;
-            var highestPos = buses.First().Pos;
-
-
-            buses = buses.Skip(1).ToList();
-
-            long result = highestID;
-
-            while (true)
-            {
-                Console.WriteLine($"{result}");
-
-                if (buses.Where(b => (result - (highestPos - b.Pos)) % b.ID == 0).Count() == buses.Count()) break;
-
-                result += highestID;
-            }
-
-            //// Start poging 2
-            //long result = LCM(buses.ToArray()).ID;
-
-            result -= highestPos;
+            long result = Solve(n, a);
 
             var ms = Math.Round((DateTime.Now - start).TotalMilliseconds);
 
             return $"Part 2 ({ms}ms): {result}";
         }
 
-        //static Bus LCM(Bus[] buses)
-        //{
-        //    return buses.Aggregate(lcm);
-        //}
+        public static long Solve(long[] n, long[] a)
+        {
+            long prod = n.Aggregate(1, (long i, long j) => i * j);
+            long p;
+            long sm = 0;
 
-        //static Bus lcm(Bus a, Bus b)
-        //{
-        //    return new Bus { ID = Math.Abs(a.ID * b.ID) / GCD(a.ID, b.ID, (b.Pos - a.Pos)) };
-        //}
+            for (long i = 0; i < n.Length; i++)
+            {
+                p = prod / n[i];
+                sm += a[i] * ModularMultiplicativeInverse(p, n[i]) * p;
+            }
 
-        //static long GCD(long a, long b, long offset)
-        //{
-        //    return b == 0 ? a : GCD(b, a % b, offset);
-        //}
+            return sm % prod;
+        }
+
+        private static long ModularMultiplicativeInverse(long a, long mod)
+        {
+            long b = a % mod;
+
+            for (long x = 1; x < mod; x++)
+            {
+                if ((b * x) % mod == 1)
+                {
+                    return x;
+                }
+            }
+            return 1;
+        }
     }
 }
