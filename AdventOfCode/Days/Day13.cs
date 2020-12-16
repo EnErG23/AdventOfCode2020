@@ -68,6 +68,8 @@ namespace AdventOfCode
         {
             var start = DateTime.Now;
 
+            long result = 0;
+
             List<Bus> buses = inputs[1].Split(',')
                               .Select(i => new Bus { ID = Convert.ToInt32(i.Replace("x", "0")), Pos = inputs[1].Split(',').ToList().IndexOf(i) })
                               .Where(b => b.ID > 0)
@@ -76,7 +78,7 @@ namespace AdventOfCode
             long[] n = buses.Select(b => b.ID).ToArray();
             long[] a = buses.Select(b => b.ID - b.Pos < 0 ? b.ID - (b.Pos % b.ID) : b.ID - b.Pos).ToArray();
 
-            long result = Solve(n, a);
+            result = Solve(n, a);
 
             var ms = Math.Round((DateTime.Now - start).TotalMilliseconds);
 
