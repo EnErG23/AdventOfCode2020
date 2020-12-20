@@ -9,6 +9,6 @@ namespace AdventOfCode.Models
     public class Bus
     {
         public long ID { get; set; }
-        public int Pos { get; set; }
+        public long Pos { get; set; }
     }
 }
