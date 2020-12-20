@@ -86,14 +86,7 @@ namespace AdventOfCode
             var pos = 6;
             var init = spokenNumbers.Last();
 
-            //  while pos <= rounds:
-            //      if a[init] == 0:
-            //          initnew = 0
-            //      else:
-            //          initnew = pos - a[init]
-            //      a[init] = pos
-            //      init = initnew
-            //      pos = pos + 1
+            //update array
             while (pos <= rounds)
             {
                 long initNew = 0;
@@ -112,32 +105,5 @@ namespace AdventOfCode
 
             return $"Part 2 ({ms}ms): {result}";
         }
-
-        static string Part2Old()
-        {
-            var start = DateTime.Now;
-
-            long result = 0;
-
-            var spokenNumbers = inputs[0].Split(',').Select(i => Convert.ToInt64(i)).ToArray();
-
-            for (int i = spokenNumbers.Count(); i < 3000 /*30000000*/; i++)
-            {
-                var index = Array.LastIndexOf(spokenNumbers.Take(spokenNumbers.Count() - 1).ToArray(), spokenNumbers.Last());
-                spokenNumbers = spokenNumbers.Append(index != -1 ? i - 1 - index : 0).ToArray();
-            }
-
-            result = spokenNumbers.Last();
-
-            var ms = Math.Round((DateTime.Now - start).TotalMilliseconds);
-
-            return $"Part 2 ({ms}ms (EXPECTED = {ms * 10000 / 1000 / 60 / 60}h)): {result}";
-        }
-    }
-
-    public class SpokenNumberSave
-    {
-        public long Value { get; set; }
-        public long Position { get; set; }
     }
 }
