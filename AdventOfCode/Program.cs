@@ -33,6 +33,7 @@ namespace AdventOfCode
             Day13.Run(); // To Clean
             Day14.Run(); // To Clean // PART 2 => ÜBERSLOW
             Day15.Run(); // To Clean
+            Day16.Run(); // To Clean
 
             ////DAY 11
             //Day11Pt1();

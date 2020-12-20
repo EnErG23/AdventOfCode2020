@@ -54,5 +54,13 @@ C:\Users\vande\Source\repos\AdventOfCode2020\AdventOfCode\obj\Debug\AdventOfCode
 C:\Users\vande\Source\repos\AdventOfCode2020\AdventOfCode\obj\Debug\AdventOfCode.csproj.CoreCompileInputs.cache
 C:\Users\vande\Source\repos\AdventOfCode2020\AdventOfCode\obj\Debug\AdventOfCode.exe
 C:\Users\vande\Source\repos\AdventOfCode2020\AdventOfCode\obj\Debug\AdventOfCode.pdb
+<<<<<<< HEAD
+C:\Users\Geert\Source\Repos\AdventOfCode2020\AdventOfCode\bin\Debug\Inputs\13.txt
+C:\Users\Geert\Source\Repos\AdventOfCode2020\AdventOfCode\bin\Debug\Inputs\16.txt
+=======
 C:\Users\vande\Source\repos\AdventOfCode2020\AdventOfCode\bin\Debug\Inputs\14.txt
+<<<<<<< HEAD
 C:\Users\vande\Source\repos\AdventOfCode2020\AdventOfCode\bin\Debug\Inputs\15.txt
+=======
+>>>>>>> fd053fc189974092b73054f75f1090605475a8f8
+>>>>>>> 968c5a51564a0b74911dcd94dcd81fd55f558252
