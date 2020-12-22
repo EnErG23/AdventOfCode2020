@@ -1,40 +1,8 @@
-C:\Users\vande\Source\repos\AdventOfCode\AdventOfCode\bin\Debug\Inputs\1.txt
-C:\Users\vande\Source\repos\AdventOfCode\AdventOfCode\bin\Debug\Inputs\11.txt
-C:\Users\vande\Source\repos\AdventOfCode\AdventOfCode\bin\Debug\Inputs\10.txt
-C:\Users\vande\Source\repos\AdventOfCode\AdventOfCode\bin\Debug\Inputs\2.txt
-C:\Users\vande\Source\repos\AdventOfCode\AdventOfCode\bin\Debug\Inputs\3.txt
-C:\Users\vande\Source\repos\AdventOfCode\AdventOfCode\bin\Debug\Inputs\4.txt
-C:\Users\vande\Source\repos\AdventOfCode\AdventOfCode\bin\Debug\Inputs\5.txt
-C:\Users\vande\Source\repos\AdventOfCode\AdventOfCode\bin\Debug\Inputs\6.txt
-C:\Users\vande\Source\repos\AdventOfCode\AdventOfCode\bin\Debug\Inputs\7.txt
-C:\Users\vande\Source\repos\AdventOfCode\AdventOfCode\bin\Debug\Inputs\8.txt
-C:\Users\vande\Source\repos\AdventOfCode\AdventOfCode\bin\Debug\Inputs\9.txt
-C:\Users\vande\Source\repos\AdventOfCode\AdventOfCode\bin\Debug\AdventOfCode.exe.config
-C:\Users\vande\Source\repos\AdventOfCode\AdventOfCode\bin\Debug\AdventOfCode.exe
-C:\Users\vande\Source\repos\AdventOfCode\AdventOfCode\bin\Debug\AdventOfCode.pdb
-C:\Users\vande\Source\repos\AdventOfCode\AdventOfCode\obj\Debug\AdventOfCode.csprojAssemblyReference.cache
-C:\Users\vande\Source\repos\AdventOfCode\AdventOfCode\obj\Debug\AdventOfCode.csproj.CoreCompileInputs.cache
-C:\Users\vande\Source\repos\AdventOfCode\AdventOfCode\obj\Debug\AdventOfCode.exe
-C:\Users\vande\Source\repos\AdventOfCode\AdventOfCode\obj\Debug\AdventOfCode.pdb
-C:\Users\Geert\Source\Repos\AdventOfCode2020\AdventOfCode\bin\Debug\Inputs\1.txt
-C:\Users\Geert\Source\Repos\AdventOfCode2020\AdventOfCode\bin\Debug\Inputs\11.txt
-C:\Users\Geert\Source\Repos\AdventOfCode2020\AdventOfCode\bin\Debug\Inputs\10.txt
-C:\Users\Geert\Source\Repos\AdventOfCode2020\AdventOfCode\bin\Debug\Inputs\2.txt
-C:\Users\Geert\Source\Repos\AdventOfCode2020\AdventOfCode\bin\Debug\Inputs\3.txt
-C:\Users\Geert\Source\Repos\AdventOfCode2020\AdventOfCode\bin\Debug\Inputs\4.txt
-C:\Users\Geert\Source\Repos\AdventOfCode2020\AdventOfCode\bin\Debug\Inputs\5.txt
-C:\Users\Geert\Source\Repos\AdventOfCode2020\AdventOfCode\bin\Debug\Inputs\6.txt
-C:\Users\Geert\Source\Repos\AdventOfCode2020\AdventOfCode\bin\Debug\Inputs\7.txt
-C:\Users\Geert\Source\Repos\AdventOfCode2020\AdventOfCode\bin\Debug\Inputs\8.txt
-C:\Users\Geert\Source\Repos\AdventOfCode2020\AdventOfCode\bin\Debug\Inputs\9.txt
-C:\Users\Geert\Source\Repos\AdventOfCode2020\AdventOfCode\bin\Debug\AdventOfCode.exe.config
-C:\Users\Geert\Source\Repos\AdventOfCode2020\AdventOfCode\bin\Debug\AdventOfCode.exe
-C:\Users\Geert\Source\Repos\AdventOfCode2020\AdventOfCode\bin\Debug\AdventOfCode.pdb
-C:\Users\Geert\Source\Repos\AdventOfCode2020\AdventOfCode\obj\Debug\AdventOfCode.csprojAssemblyReference.cache
-C:\Users\Geert\Source\Repos\AdventOfCode2020\AdventOfCode\obj\Debug\AdventOfCode.exe
-C:\Users\Geert\Source\Repos\AdventOfCode2020\AdventOfCode\obj\Debug\AdventOfCode.pdb
-C:\Users\Geert\Source\Repos\AdventOfCode2020\AdventOfCode\bin\Debug\Inputs\12.txt
 C:\Users\vande\Source\repos\AdventOfCode2020\AdventOfCode\bin\Debug\Inputs\1.txt
+C:\Users\vande\Source\repos\AdventOfCode2020\AdventOfCode\bin\Debug\Inputs\15.txt
+C:\Users\vande\Source\repos\AdventOfCode2020\AdventOfCode\bin\Debug\Inputs\14.txt
+C:\Users\vande\Source\repos\AdventOfCode2020\AdventOfCode\bin\Debug\Inputs\17.txt
+C:\Users\vande\Source\repos\AdventOfCode2020\AdventOfCode\bin\Debug\Inputs\16.txt
 C:\Users\vande\Source\repos\AdventOfCode2020\AdventOfCode\bin\Debug\Inputs\13.txt
 C:\Users\vande\Source\repos\AdventOfCode2020\AdventOfCode\bin\Debug\Inputs\12.txt
 C:\Users\vande\Source\repos\AdventOfCode2020\AdventOfCode\bin\Debug\Inputs\11.txt
@@ -54,13 +22,4 @@ C:\Users\vande\Source\repos\AdventOfCode2020\AdventOfCode\obj\Debug\AdventOfCode
 C:\Users\vande\Source\repos\AdventOfCode2020\AdventOfCode\obj\Debug\AdventOfCode.csproj.CoreCompileInputs.cache
 C:\Users\vande\Source\repos\AdventOfCode2020\AdventOfCode\obj\Debug\AdventOfCode.exe
 C:\Users\vande\Source\repos\AdventOfCode2020\AdventOfCode\obj\Debug\AdventOfCode.pdb
-<<<<<<< HEAD
-C:\Users\Geert\Source\Repos\AdventOfCode2020\AdventOfCode\bin\Debug\Inputs\13.txt
-C:\Users\Geert\Source\Repos\AdventOfCode2020\AdventOfCode\bin\Debug\Inputs\16.txt
-=======
-C:\Users\vande\Source\repos\AdventOfCode2020\AdventOfCode\bin\Debug\Inputs\14.txt
-<<<<<<< HEAD
-C:\Users\vande\Source\repos\AdventOfCode2020\AdventOfCode\bin\Debug\Inputs\15.txt
-=======
->>>>>>> fd053fc189974092b73054f75f1090605475a8f8
->>>>>>> 968c5a51564a0b74911dcd94dcd81fd55f558252
+C:\Users\vande\Source\repos\AdventOfCode2020\AdventOfCode\bin\Debug\Inputs\18.txt
