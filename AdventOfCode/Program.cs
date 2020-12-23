@@ -35,7 +35,8 @@ namespace AdventOfCode
             //Day15.Run(); // To Clean
             //Day16.Run(); // To Clean
             //Day17.Run(); // To Clean // PART 2 => ÜBERSLOW
-            Day18.Run();
+            //Day18.Run(); // To Clean
+            Day19.Run();
 
             ////DAY 11
             //Day11Pt1();
