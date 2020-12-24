@@ -17,8 +17,6 @@ namespace AdventOfCode
         public static DateTime end;
         public static List<string> inputs = InputManager.GetInput(19);
         public static List<MessageRule> rules = new List<MessageRule>();
-        public static bool eightAdded = false;
-        public static bool elevenAdded = false;
 
         public static void Run()
         {
@@ -52,12 +50,8 @@ namespace AdventOfCode
                 var subRules = new List<List<string>>();
 
                 if (!input.Contains("\""))
-                {
                     foreach (var subRule in input.Substring(input.IndexOf(":") + 1).Split('|'))
-                    {
                         subRules.Add(subRule.Split(' ').Where(s => s != "").ToList());
-                    }
-                }
 
                 var match = input.Contains("\"") ? input.Substring(input.IndexOf("\"") + 1, input.LastIndexOf("\"") - input.IndexOf("\"") - 1) : "";
 
@@ -74,18 +68,14 @@ namespace AdventOfCode
             var messages = new List<string>();
 
             foreach (var input in inputs.Where(i => !i.Contains(":")))
-            {
                 messages.Add(input);
-            }
 
             var pattern = $@"^{BuildPattern("0")}$";
-
+            
             Regex rgx = new Regex(pattern);
 
             foreach (var message in messages)
-            {
                 result += rgx.IsMatch(message) ? 1 : 0;
-            }
 
             var ms = Math.Round((DateTime.Now - start).TotalMilliseconds);
 
@@ -106,26 +96,8 @@ namespace AdventOfCode
                 var subRules = new List<List<string>>();
 
                 if (!input.Contains("\""))
-                {
                     foreach (var subRule in input.Substring(input.IndexOf(":") + 1).Split('|'))
-                    {
                         subRules.Add(subRule.Split(' ').Where(s => s != "").ToList());
-                    }
-                }
-
-                if (id == "8")
-                    subRules.Add(new List<string>() { "42 8" });
-
-                if (id == "11")
-                    subRules.Add(new List<string>() { "42 11 31" });
-
-                //if (id == "8" || id == "11")
-                //{
-                //    foreach (var subRule in subRules)
-                //    {
-                //        Console.WriteLine($"{id} => {string.Join(" ", subRule)}");
-                //    }
-                //}
 
                 var match = input.Contains("\"") ? input.Substring(input.IndexOf("\"") + 1, input.LastIndexOf("\"") - input.IndexOf("\"") - 1) : "";
 
@@ -142,20 +114,14 @@ namespace AdventOfCode
             var messages = new List<string>();
 
             foreach (var input in inputs.Where(i => !i.Contains(":")))
-            {
                 messages.Add(input);
-            }
 
             var pattern = $@"^{BuildPattern2("0")}$";
-
-            Console.WriteLine(pattern);
 
             Regex rgx = new Regex(pattern);
 
             foreach (var message in messages)
-            {
                 result += rgx.IsMatch(message) ? 1 : 0;
-            }
 
             var ms = Math.Round((DateTime.Now - start).TotalMilliseconds);
 
@@ -192,18 +158,6 @@ namespace AdventOfCode
 
         static string BuildPattern2(string ruleID)
         {
-            //if (ruleID == "8")
-            //    if (eightAdded)
-            //        return "";
-            //    else
-            //        eightAdded = true;
-
-            //if (ruleID == "11")
-            //    if (elevenAdded)
-            //        return "";
-            //    else
-            //        elevenAdded = true;
-
             var result = "";
 
             var rule = rules.Find(r => r.ID == ruleID);
@@ -214,10 +168,23 @@ namespace AdventOfCode
             }
             else
             {
-                //if (ruleID == "8" || ruleID == "11")
-                //    result += "(";
+                if (ruleID == "8")
+                    return $"(({BuildPattern2("42")})+)";
+
+                if (ruleID == "11")
+                {
+                    var elevenResult = "(";
+
+                    for (int i = 1; i < 11; i++)
+                    {
+                        elevenResult += $"(({BuildPattern2("42")}{{{i}}})({BuildPattern2("31")}{{{i}}}))|";
+                    }
+
+                    return $"{elevenResult.Substring(0, elevenResult.Length - 1)})";
+                }
 
                 result += "(";
+
                 var tempResult = "";
                 foreach (var subRule in rule.SubRules)
                 {
@@ -228,18 +195,7 @@ namespace AdventOfCode
                     tempResult += "|";
                 }
                 result += $"{tempResult.Substring(0, tempResult.Length - 1)})";
-
-                //if (ruleID == "8" || ruleID == "11")
-                //    result += "*)";
             }
-
-            //if (ruleID == "8")
-            //    eightAdded = true;
-
-            //if (ruleID == "11")
-            //    elevenAdded = true;
-
-            Console.WriteLine($"{ruleID} => {result}");
 
             return result;
         }
