@@ -49,3 +49,4 @@ C:\Users\Geert\Source\Repos\AdventOfCode2020\AdventOfCode\bin\Debug\AdventOfCode
 C:\Users\Geert\Source\Repos\AdventOfCode2020\AdventOfCode\obj\Debug\AdventOfCode.csprojAssemblyReference.cache
 C:\Users\Geert\Source\Repos\AdventOfCode2020\AdventOfCode\obj\Debug\AdventOfCode.exe
 C:\Users\Geert\Source\Repos\AdventOfCode2020\AdventOfCode\obj\Debug\AdventOfCode.pdb
+C:\Users\Geert\Source\Repos\AdventOfCode2020\AdventOfCode\bin\Debug\Inputs\20.txt

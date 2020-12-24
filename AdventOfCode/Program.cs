@@ -31,12 +31,13 @@ namespace AdventOfCode
             ////Day11.Run(); // To Move
             //Day12.Run(); // To Clean
             //Day13.Run(); // To Clean
-            //Day14.Run(); // To Clean // PART 2 => ÜBERSLOW
+            Day14.Run(); // To Clean // PART 2 => ÜBERSLOW
             //Day15.Run(); // To Clean
             //Day16.Run(); // To Clean
-            //Day17.Run(); // To Clean // PART 2 => ÜBERSLOW
+            Day17.Run(); // To Clean // PART 2 => ÜBERSLOW
             //Day18.Run(); // To Clean
-            Day19.Run();
+            //Day19.Run(); // To Clean
+            //Day20.Run();
 
             ////DAY 11
             //Day11Pt1();

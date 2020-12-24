@@ -46,6 +46,7 @@
     <Compile Include="Days\Day1.cs" />
     <Compile Include="Days\Day15.cs" />
     <Compile Include="Days\Day14.cs" />
+    <Compile Include="Days\Day20.cs" />
     <Compile Include="Days\Day19.cs" />
     <Compile Include="Days\Day18.cs" />
     <Compile Include="Days\Day17.cs" />
@@ -69,6 +70,7 @@
     <Compile Include="Models\Restriction.cs" />
     <Compile Include="Models\Bag.cs" />
     <Compile Include="Models\Bus.cs" />
+    <Compile Include="Models\Tile.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -83,6 +85,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Inputs\14.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Inputs\20.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Inputs\19.txt">

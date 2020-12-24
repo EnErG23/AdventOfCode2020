@@ -52,7 +52,7 @@ namespace AdventOfCode
                     number = i - 1 - spokenNumbers.Take(spokenNumbers.Count() - 1).ToList().LastIndexOf(spokenNumbers[i - 1]);
                 }
 
-                if (i % 10000 == 0) Console.WriteLine($"{i})    Prev: {spokenNumbers[i - 1]}, Pos: {spokenNumbers.Take(spokenNumbers.Count() - 1).ToList().LastIndexOf(spokenNumbers[i - 1])} => {number}");
+                //if (i % 10000 == 0) Console.WriteLine($"{i})    Prev: {spokenNumbers[i - 1]}, Pos: {spokenNumbers.Take(spokenNumbers.Count() - 1).ToList().LastIndexOf(spokenNumbers[i - 1])} => {number}");
                 spokenNumbers.Add(number);
             }
 
@@ -79,7 +79,7 @@ namespace AdventOfCode
             for (int i = 0; i < spokenNumbers.Count()-1; i++)
             {
                 numbers[spokenNumbers[i]] = i+1;
-                Console.WriteLine($"{spokenNumbers[i]} => numbers[{spokenNumbers[i]}] = {i+1}");
+                //Console.WriteLine($"{spokenNumbers[i]} => numbers[{spokenNumbers[i]}] = {i+1}");
             }
 
             //start with last value
