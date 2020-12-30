@@ -46,6 +46,7 @@
     <Compile Include="Days\Day1.cs" />
     <Compile Include="Days\Day15.cs" />
     <Compile Include="Days\Day14.cs" />
+    <Compile Include="Days\Day22.cs" />
     <Compile Include="Days\Day21.cs" />
     <Compile Include="Days\Day20.cs" />
     <Compile Include="Days\Day19.cs" />
@@ -65,6 +66,7 @@
     <Compile Include="Days\Day11.cs" />
     <Compile Include="Helpers\InputManager.cs" />
     <Compile Include="Days\Day2.cs" />
+    <Compile Include="Models\Food.cs" />
     <Compile Include="Models\Cube.cs" />
     <Compile Include="Models\Data.cs" />
     <Compile Include="Models\MessageRule.cs" />
@@ -86,6 +88,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Inputs\14.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Inputs\22.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Inputs\21.txt">

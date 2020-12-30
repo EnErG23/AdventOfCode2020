@@ -39,6 +39,7 @@ namespace AdventOfCode
             //Day19.Run(); // To Clean
             //Day20.Run(); // To Clean // HAS VISUALIZATION
             //Day21.Run(); // To Clean
+            Day22.Run();
 
             ////DAY 11
             //Day11Pt1();
